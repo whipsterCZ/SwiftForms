@@ -44,6 +44,7 @@ class FormRowDescriptor: NSObject {
     
     struct Configuration {
         static let Required = "FormRowDescriptorConfigurationRequired"
+        static let Disabled = "FormRowDescriptorConfigurationDisabled"
 
         static let CellClass = "FormRowDescriptorConfigurationCellClass"
         static let CheckmarkAccessoryView = "FormRowDescriptorConfigurationCheckmarkAccessoryView"
@@ -95,6 +96,7 @@ class FormRowDescriptor: NSObject {
     override init() {
         super.init()
         configuration[Configuration.Required] = true
+        configuration[Configuration.Disabled] = false
         configuration[Configuration.AllowsMultipleSelection] = false
         configuration[Configuration.ShowsInputToolbar] = false
     }
