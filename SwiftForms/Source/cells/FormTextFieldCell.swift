@@ -56,7 +56,13 @@ class FormTextFieldCell: FormBaseCell {
         }
     
         titleLabel.text = rowDescriptor.title
-        textField.text = rowDescriptor.value as? String
+        
+        textField.userInteractionEnabled = rowDescriptor.configuration[FormRowDescriptor.Configuration.Disabled] as! Bool == false 
+        if let text = rowDescriptor.value as? NSNumber {
+            textField.text = text.stringValue
+        } else {
+            textField.text = rowDescriptor.value as? String            
+        }
         textField.placeholder = rowDescriptor.configuration[FormRowDescriptor.Configuration.Placeholder] as? String
         
         textField.secureTextEntry = false
