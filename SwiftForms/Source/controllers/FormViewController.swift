@@ -82,6 +82,7 @@ class FormViewController : UITableViewController {
         var rowIndex = 0
         
         for section in form.sections {
+            rowIndex = 0
             for row in section.rows {
                 if row.tag == tag {
                     row.value = value
